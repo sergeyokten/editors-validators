@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/save" method="post" th:object="${contact}">
+    <input th:field="*{name}"  placeholder="name">
+    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name error</p>
+    <input type="" name="phoneList" placeholder="">
+    <input type="submit" name="" placeholder="">
+</form>
+</body>
+</html>
