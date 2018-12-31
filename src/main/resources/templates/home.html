@@ -1,15 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<form action="/save" method="post" th:object="${contact}">
-    <input th:field="*{name}"  placeholder="name">
+
+https://habr.com/post/350870/
+https://habr.com/post/350862/
+<p th:text="#{xxx(${msg})}">test</p>
+<p th:text="${msg}">test msg</p>
+<p th:text="|welcome ${msg}|"></p>
+<form action="#" th:action="@{/save}" method="post" th:object="${contact}">
+    <input th:field="*{name}" placeholder="name">
     <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name error</p>
     <input type="" name="phoneList" placeholder="">
     <input type="submit" name="" placeholder="">
 </form>
+<p th:text="${#messages}"></p>
+<a th:href="@{/order(parm=${msg})}">link1</a>
+<a href="/save" th:href="@{'/order/'+${msg}}">link2</a>
+
+
+<!--<div th:insert="~{footer::copy}"></div>-->
+<!--<div th:insert="~{footer::#copy }"></div>-->
+<p th:insert="~{footer::copy (a=${msg},b='qwe')}"></p>
+
+
 </body>
 </html>

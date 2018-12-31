@@ -21,6 +21,7 @@ public class MainController {
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("contact", new Contact("vaysas"));
+        model.addAttribute("msg", "kokokoks");
         return "home";
     }
 
@@ -38,7 +39,7 @@ public class MainController {
     @Autowired
     private PhoneEditor phoneEditor;
 
-    @InitBinder()
+//    @InitBinder("contact" /*this is name of object in form th:object="${contact}"*/)
     public void initBinder(WebDataBinder webDataBinder) {
         System.out.println("react 1");
         webDataBinder.registerCustomEditor(Phone.class, phoneEditor);
